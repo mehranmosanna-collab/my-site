@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>سیدمهران حسن مثنایی | سایت شخصی</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #f5f5f5;
+      color: #222;
+    }
+
+    /* هدر بالا */
+    header {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 25px 0;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+    header p {
+      margin: 6px 0 0;
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    /* محتوای اصلی */
+    .container {
+      max-width: 900px;
+      margin: 25px auto 40px;
+      padding: 0 15px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 22px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 20px;
+      border-right: 4px solid #111;
+      padding-right: 10px;
+    }
+
+    .about-text {
+      line-height: 1.9;
+      font-size: 15px;
+    }
+
+    /* گالری عکس‌ها */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 12px;
+      margin-top: 15px;
+    }
+    .gallery img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .gallery img:hover {
+      transform: scale(1.02);
+      transition: 0.2s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    /* لینک شبکه‌های اجتماعی */
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    .social-links a {
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid #111;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+    .social-links a:hover {
+      background: #111;
+      color: #fff;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      padding: 20px 0 30px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- هدر بالا -->
+  <header>
+    <h1>سیدمهران حسن مثنایی</h1>
+    <p>فعال در زمینه هنر | دوستدار طبیعت و تاریخ ایران</p>
+  </header>
+
+  <!-- محتوای اصلی -->
+  <div class="container">
+
+    <!-- کارت معرفی -->
+    <section class="card">
+      <h2>درباره من</h2>
+      <p class="about-text">
+        من سیدمهران حسن مثنایی هستم.  
+        در زمینه هنر و فعالیت‌های فرهنگی کار می‌کنم  
+        و علاقه‌مند به طبیعت ایران زمین و تاریخ غنی کشورم هستم.  
+        هدفم ایجاد ارتباط بیشتر با مردم از طریق هنر، محتوا و فرهنگ ایرانی است.
+      </p>
+    </section>
+
+    <!-- کارت گالری -->
+    <section class="card">
+      <h2>نمونه کارها / گالری</h2>
+      <div class="gallery">
+        <!-- عکس‌ها را کنار فایل index.html قرار بده و اسم‌شان را دقیقا مطابق زیر بگذار -->
+        <img src="pic1.jpg" alt="عکس ۱">
+        <img src="pic2.jpg" alt="عکس ۲">
+        <img src="pic3.jpg" alt="عکس ۳">
+        <img src="pic4.jpg" alt="عکس ۴">
+      </div>
+      <p style="font-size: 13px; margin-top: 10px; color: #666;">
+        عکس‌ها را در کنار همین فایل قرار بده و اسم‌شان را:
+        pic1.jpg – pic2.jpg – pic3.jpg – pic4.jpg  
+        بگذار تا نمایش داده شوند.
+      </p>
+    </section>
+
+    <!-- کارت شبکه‌های اجتماعی -->
+    <section class="card">
+      <h2>شبکه‌های اجتماعی من</h2>
+      <p class="about-text">
+        برای دنبال کردن من در شبکه‌های اجتماعی از لینک‌های زیر استفاده کنید:
+      </p>
+
+      <div class="social-links">
+        <a href="https://instagram.com/hasanmosannaa" target="_blank">اینستاگرام</a>
+        <a href="https://t.me/hasanmosannaeii" target="_blank">تلگرام</a>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    © تمامی حقوق محفوظ است – سیدمهران حسن مثنایی
+  </footer>
+
+</body>
+</html>
