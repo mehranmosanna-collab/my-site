@@ -2,164 +2,513 @@
 <html lang="fa" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <title>سیدمهران حسن مثنایی | سایت شخصی</title>
+  <title>سایت شخصی من - مهران حسن مثنایی</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      background: #f5f5f5;
-      color: #222;
+    :root {
+      --bg-body: #0f172a;
+      --bg-card: #0b1120;
+      --accent: #fbbf24;
+      --accent-soft: rgba(251, 191, 36, 0.12);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border-subtle: rgba(148, 163, 184, 0.35);
+      --radius-lg: 18px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.8);
+      --transition-fast: 0.2s ease-out;
     }
 
-    /* هدر بالا */
-    header {
-      background: #111;
-      color: #fff;
-      text-align: center;
-      padding: 25px 0;
+    * {
+      box-sizing: border-box;
     }
-    header h1 {
+
+    body {
       margin: 0;
-      font-size: 28px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 55%);
+      color: var(--text-main);
+      min-height: 100vh;
     }
-    header p {
-      margin: 6px 0 0;
-      font-size: 14px;
-      opacity: 0.9;
+
+    /* هدر */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to left, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.7));
+      border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .nav {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(249, 250, 251, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 30% 0, #fbbf24, #e11d48);
+      box-shadow: 0 0 18px rgba(251, 191, 36, 0.6);
+      font-size: 18px;
+      font-weight: 700;
+      color: #0b1120;
+    }
+
+    .brand-text h1 {
+      margin: 0;
+      font-size: 17px;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-text p {
+      margin: 1px 0 0;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-size: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-main);
+      border-color: rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .nav-cta {
+      border-radius: 999px;
+      padding: 6px 14px;
+      border: 1px solid rgba(251, 191, 36, 0.7);
+      background: radial-gradient(circle at top left, rgba(251, 191, 36, 0.18), transparent);
+      color: var(--accent);
+      font-size: 12px;
+      cursor: pointer;
+      transition: var(--transition-fast);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-cta:hover {
+      background: rgba(251, 191, 36, 0.12);
+      box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
+      transform: translateY(-1px);
     }
 
     /* محتوای اصلی */
-    .container {
-      max-width: 900px;
-      margin: 25px auto 40px;
-      padding: 0 15px;
+    .page-wrap {
+      max-width: 1040px;
+      margin: 26px auto 40px;
+      padding: 0 18px 32px;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(260px, 1.2fr);
+      gap: 22px;
+      align-items: flex-start;
     }
 
     .card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 22px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.96));
+      border-radius: var(--radius-lg);
+      padding: 18px 18px 16px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top left, rgba(251, 191, 36, 0.08), transparent 55%),
+        radial-gradient(circle at bottom, rgba(56, 189, 248, 0.06), transparent 55%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
     }
 
     .card h2 {
-      margin-top: 0;
-      font-size: 20px;
-      border-right: 4px solid #111;
+      margin: 0 0 8px;
+      font-size: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       padding-right: 10px;
+      border-right: 3px solid var(--accent);
+    }
+
+    .card h2 span.dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 8px rgba(251, 191, 36, 0.9);
+    }
+
+    .card-subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
     }
 
     .about-text {
       line-height: 1.9;
-      font-size: 15px;
+      font-size: 13px;
+      color: #e5e7eb;
     }
 
-    /* گالری عکس‌ها */
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 14px;
+      font-size: 11px;
+    }
+
+    .about-tags span {
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--text-muted);
+    }
+
+    /* گالری / نمونه کارها */
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 12px;
-      margin-top: 15px;
-    }
-    .gallery img {
-      width: 100%;
-      height: 210px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-    .gallery img:hover {
-      transform: scale(1.02);
-      transition: 0.2s;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
     }
 
-    /* لینک شبکه‌های اجتماعی */
+    .gallery-item {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: #020617;
+      cursor: pointer;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+      aspect-ratio: 4 / 3;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform var(--transition-fast), opacity var(--transition-fast);
+    }
+
+    .gallery-item span {
+      position: absolute;
+      inset-inline-start: 8px;
+      inset-block-end: 8px;
+      font-size: 10px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.88);
+      color: var(--text-muted);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      backdrop-filter: blur(8px);
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+      border-color: rgba(251, 191, 36, 0.6);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+      opacity: 0.96;
+    }
+
+    .gallery-note {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 10px;
+    }
+
+    /* ستون کناری: شبکه‌های اجتماعی / تماس */
+    .side-card {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
     .social-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 15px;
-    }
-    .social-links a {
-      text-decoration: none;
-      padding: 10px 16px;
-      border-radius: 999px;
-      border: 1px solid #111;
-      font-size: 14px;
-      transition: 0.2s;
-    }
-    .social-links a:hover {
-      background: #111;
-      color: #fff;
+      gap: 8px;
+      margin-top: 10px;
     }
 
+    .social-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 11px;
+      color: var(--text-muted);
+      text-decoration: none;
+      background: rgba(15, 23, 42, 0.82);
+      transition: var(--transition-fast);
+    }
+
+    .social-pill::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.8);
+    }
+
+    .social-pill:hover {
+      color: var(--text-main);
+      border-color: rgba(251, 191, 36, 0.8);
+      background: rgba(24, 24, 27, 0.9);
+      transform: translateY(-1px);
+    }
+
+    .contact-box {
+      margin-top: 6px;
+      padding: 10px 11px;
+      border-radius: 12px;
+      background: var(--accent-soft);
+      border: 1px dashed rgba(251, 191, 36, 0.8);
+      font-size: 11px;
+      color: #fef9c3;
+    }
+
+    /* فوتر */
     footer {
       text-align: center;
-      font-size: 12px;
-      padding: 20px 0 30px;
-      color: #777;
+      font-size: 11px;
+      padding: 18px 0 26px;
+      color: var(--text-muted);
+    }
+
+    footer span {
+      color: var(--accent);
+    }
+
+    /* ریسپانسیو */
+    @media (max-width: 880px) {
+      .page-wrap {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 18px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .page-wrap {
+        margin-top: 20px;
+        padding-inline: 14px;
+      }
+
+      .card {
+        padding: 14px 13px 13px;
+      }
+
+      .card h2 {
+        font-size: 15px;
+      }
+
+      .about-text {
+        font-size: 12px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- هدر بالا -->
+  <!-- هدر / ناوبری -->
   <header>
-    <h1>سیدمهران حسن مثنایی</h1>
-    <p>فعال در زمینه هنر | دوستدار طبیعت و تاریخ ایران</p>
+    <div class="nav">
+      <div class="brand">
+        <div class="brand-logo">M</div>
+        <div class="brand-text">
+          <h1>مهران حسن مثنایی</h1>
+          <p>تولید محتوا | مدیریت پیج اینستاگرام | علاقه‌مند به هنر و طبیعت</p>
+        </div>
+      </div>
+
+      <div class="nav-links">
+        <a href="#about">درباره من</a>
+        <a href="#works">نمونه‌کارها</a>
+        <a href="#social">شبکه‌های اجتماعی</a>
+        <a class="nav-cta" href="https://instagram.com/hasanmosannaa" target="_blank">
+          رزرو همکاری اینستاگرام
+        </a>
+      </div>
+    </div>
   </header>
 
   <!-- محتوای اصلی -->
-  <div class="container">
+  <main class="page-wrap">
 
-    <!-- کارت معرفی -->
-    <section class="card">
-      <h2>درباره من</h2>
-      <p class="about-text">
-        من سیدمهران حسن مثنایی هستم.  
-        در زمینه هنر و فعالیت‌های فرهنگی کار می‌کنم  
-        و علاقه‌مند به طبیعت ایران زمین و تاریخ غنی کشورم هستم.  
-        هدفم ایجاد ارتباط بیشتر با مردم از طریق هنر، محتوا و فرهنگ ایرانی است.
-      </p>
-    </section>
+    <!-- ستون اصلی -->
+    <section class="card" id="about">
+      <div class="card-inner">
+        <h2>
+          <span class="dot"></span>
+          درباره من
+        </h2>
+        <p class="card-subtitle">
+          چند خط کوتاه برای اینکه بهتر با من و سبک کاری‌ام آشنا شوید.
+        </p>
+        <p class="about-text">
+          من مهران هستم؛ در زمینه تولید محتوا، مدیریت و رشد پیج‌های اینستاگرام فعالیت می‌کنم.
+          تمرکزم روی ساخت هویتی منسجم برای برندها، طراحی پست و استوری‌های حرفه‌ای، برنامه‌ریزی
+          محتوایی و آنالیز عملکرد صفحات است.
+          <br><br>
+          به هنر، طبیعت و تاریخ ایران علاقه‌مندم و سعی می‌کنم این نگاه هنری و احساس
+          نسبت به زیبایی را در طراحی و تولید محتوا وارد کنم تا نتیجه کار فقط «درست»
+          نباشد، بلکه «دیدنی و ماندگار» باشد.
+        </p>
 
-    <!-- کارت گالری -->
-    <section class="card">
-      <h2>نمونه کارها / گالری</h2>
-      <div class="gallery">
-        <!-- عکس‌ها را کنار فایل index.html قرار بده و اسم‌شان را دقیقا مطابق زیر بگذار -->
-        <img src="pic1.jpg" alt="عکس ۱">
-        <img src="pic2.jpg" alt="عکس ۲">
-        <img src="pic3.jpg" alt="عکس ۳">
-        <img src="pic4.jpg" alt="عکس ۴">
-      </div>
-      <p style="font-size: 13px; margin-top: 10px; color: #666;">
-        عکس‌ها را در کنار همین فایل قرار بده و اسم‌شان را:
-        pic1.jpg – pic2.jpg – pic3.jpg – pic4.jpg  
-        بگذار تا نمایش داده شوند.
-      </p>
-    </section>
-
-    <!-- کارت شبکه‌های اجتماعی -->
-    <section class="card">
-      <h2>شبکه‌های اجتماعی من</h2>
-      <p class="about-text">
-        برای دنبال کردن من در شبکه‌های اجتماعی از لینک‌های زیر استفاده کنید:
-      </p>
-
-      <div class="social-links">
-        <a href="https://instagram.com/hasanmosannaa" target="_blank">اینستاگرام</a>
-        <a href="https://t.me/hasanmosannaeii" target="_blank">تلگرام</a>
+        <div class="about-tags">
+          <span>طراحی پست و استوری</span>
+          <span>استراتژی محتوایی</span>
+          <span>افزایش تعامل پیج</span>
+          <span>مدیریت کامل اینستاگرام</span>
+        </div>
       </div>
     </section>
 
-  </div>
+    <section class="card" id="works">
+      <div class="card-inner">
+        <h2>
+          <span class="dot"></span>
+          نمونه‌کارها / گالری
+        </h2>
+        <p class="card-subtitle">
+          بخشی از طراحی‌ها و پروژه‌هایی که روی آن‌ها کار کرده‌ام.
+        </p>
+
+        <div class="gallery">
+          <!-- اسم فایل عکس‌ها را با عکس‌های خودت عوض کن -->
+          <div class="gallery-item">
+            <img src="pic1.jpg" alt="نمونه کار ۱">
+            <span>طراحی پست اینستاگرام</span>
+          </div>
+          <div class="gallery-item">
+            <img src="pic2.jpg" alt="نمونه کار ۲">
+            <span>کاور استوری هایلایت</span>
+          </div>
+          <div class="gallery-item">
+            <img src="pic3.jpg" alt="نمونه کار ۳">
+            <span>هویت بصری پیج</span>
+          </div>
+          <div class="gallery-item">
+            <img src="pic4.jpg" alt="نمونه کار ۴">
+            <span>طراحی بنر تبلیغاتی</span>
+          </div>
+        </div>
+
+        <p class="gallery-note">
+          برای اضافه کردن عکس‌های بیشتر، کافی است یک
+          <code>&lt;div class="gallery-item"&gt;…&lt;/div&gt;</code>
+          مثل موارد بالا کپی کنید، اسم فایل عکس را عوض کنید و متن توضیح را مطابق
+          پروژه خودتان بنویسید.
+        </p>
+      </div>
+    </section>
+
+    <!-- ستون کناری (سمت چپ در دسکتاپ) -->
+    <aside class="side-card" id="social">
+      <section class="card">
+        <div class="card-inner">
+          <h2>
+            <span class="dot"></span>
+            شبکه‌های اجتماعی من
+          </h2>
+          <p class="card-subtitle">
+            برای دیدن کارهای بیشتر و هماهنگی برای همکاری، من را در شبکه‌های زیر دنبال کنید:
+          </p>
+
+          <div class="social-links">
+            <!-- این لینک‌ها را با پیج‌های واقعی خودت عوض کن -->
+            <a class="social-pill" href="https://instagram.com/hasanmosannaa" target="_blank">
+              اینستاگرام اصلی
+            </a>
+            <a class="social-pill" href="https://instagram.com/USERNAME2" target="_blank">
+              اینستاگرام دوم
+            </a>
+            <a class="social-pill" href="https://t.me/hasanmosannaeii" target="_blank">
+              تلگرام
+            </a>
+            <a class="social-pill" href="https://www.youtube.com/@YOURCHANNEL" target="_blank">
+              کانال یوتیوب
+            </a>
+          </div>
+
+          <div class="contact-box">
+            برای هماهنگی همکاری، طراحی قالب اختصاصی پیج یا مدیریت کامل صفحه اینستاگرام،
+            می‌توانید از طریق دایرکت اینستاگرام یا پیام در تلگرام با من در ارتباط باشید.
+          </div>
+        </div>
+      </section>
+    </aside>
+
+  </main>
 
   <footer>
-    © تمامی حقوق محفوظ است – سیدمهران حسن مثنایی
+    © همه حقوق برای <span>مهران حسن مثنایی</span> محفوظ است.
   </footer>
 
 </body>
