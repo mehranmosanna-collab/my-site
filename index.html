@@ -61,15 +61,10 @@
       width: 34px;
       height: 34px;
       border-radius: 999px;
-      border: 1px solid rgba(249, 250, 251, 0.35);
       display: flex;
       align-items: center;
       justify-content: center;
-      background: radial-gradient(circle at 30% 0, #fbbf24, #e11d48);
       box-shadow: 0 0 18px rgba(251, 191, 36, 0.6);
-      font-size: 18px;
-      font-weight: 700;
-      color: #0b1120;
     }
 
     .brand-text h1 {
@@ -380,7 +375,10 @@
   <header>
     <div class="nav">
       <div class="brand">
-        <div class="brand-logo">M</div>
+        <div class="brand-logo" style="overflow:hidden; border:none; padding:0;">
+          <img src="20250724_213736.jpg"
+               style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+        </div>
         <div class="brand-text">
           <h1>مهران حسن مثنایی</h1>
           <p>تولید محتوا | مدیریت پیج اینستاگرام | علاقه‌مند به هنر و طبیعت</p>
@@ -441,30 +439,27 @@
         </p>
 
         <div class="gallery">
-          <!-- اسم فایل عکس‌ها را با عکس‌های خودت عوض کن -->
           <div class="gallery-item">
-            <img src="pic1.jpg" alt="نمونه کار ۱">
+            <img src="20250724_213736.jpg" alt="نمونه کار ۱">
             <span>طراحی پست اینستاگرام</span>
           </div>
           <div class="gallery-item">
-            <img src="pic2.jpg" alt="نمونه کار ۲">
+            <img src="20250724_213736.jpg" alt="نمونه کار ۲">
             <span>کاور استوری هایلایت</span>
           </div>
           <div class="gallery-item">
-            <img src="pic3.jpg" alt="نمونه کار ۳">
+            <img src="20250724_213736.jpg" alt="نمونه کار ۳">
             <span>هویت بصری پیج</span>
           </div>
           <div class="gallery-item">
-            <img src="pic4.jpg" alt="نمونه کار ۴">
+            <img src="20250724_213736.jpg" alt="نمونه کار ۴">
             <span>طراحی بنر تبلیغاتی</span>
           </div>
         </div>
 
         <p class="gallery-note">
-          برای اضافه کردن عکس‌های بیشتر، کافی است یک
-          <code>&lt;div class="gallery-item"&gt;…&lt;/div&gt;</code>
-          مثل موارد بالا کپی کنید، اسم فایل عکس را عوض کنید و متن توضیح را مطابق
-          پروژه خودتان بنویسید.
+          بعداً می‌تونی برای هر کادر، عکس جداگانهٔ هر پروژه رو آپلود کنی و فقط
+          آدرس فایل‌ها رو اینجا عوض کنی.
         </p>
       </div>
     </section>
@@ -482,7 +477,6 @@
           </p>
 
           <div class="social-links">
-            <!-- این لینک‌ها را با پیج‌های واقعی خودت عوض کن -->
             <a class="social-pill" href="https://instagram.com/hasanmosannaa" target="_blank">
               اینستاگرام اصلی
             </a>
